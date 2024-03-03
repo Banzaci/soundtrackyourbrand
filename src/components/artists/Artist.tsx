@@ -25,7 +25,7 @@ function Artist(props: IArtist) {
   const { primary } = colors;
   const time = timeAgo(created_at);
   const renderArtist = artists.map(({ name, uri }) => (
-    <a target='_blank' href={`https://open.spotify.com/track/${uri}`} className='artist-body__history-link'>{name}</a>
+    <a key={uri} target='_blank' rel="noreferrer" href={`https://open.spotify.com/track/${uri}`} className='artist-body__history-link'>{name}</a>
   ))
   return (
     <div key={id} className="artist" style={{ backgroundColor: primary, padding: 4 }}>

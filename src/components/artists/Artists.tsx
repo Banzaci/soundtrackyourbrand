@@ -1,10 +1,10 @@
-import { FC, useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import Artist from "./Artist";
 import { useAppContext } from "../../context/AppContext";
 
-const Artists: FC = (): JSX.Element => {
+const Artists = () => {
   const { isLoading, songs } = useAppContext();
-  const renderSongs = useMemo(() => songs.map(Artist), [songs]);
+  const renderSongs = songs.map(Artist);
   const [fade, setFade] = useState('');
   useEffect(() => {
     if (isLoading) {

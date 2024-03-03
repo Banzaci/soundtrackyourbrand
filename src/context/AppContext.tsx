@@ -2,13 +2,13 @@ import React, { ReactNode, createContext, useEffect, useState } from 'react';
 import { IArtist } from '../components/artists/Artist';
 import api from '../utils/api';
 
-interface AppContext {
+interface IAppContext {
   songs: IArtist[];
   isLoading: boolean;
   onGetSongs: () => void
 }
 
-export const AppContext = createContext<AppContext>({
+export const AppContext = createContext<IAppContext>({
   songs: [],
   isLoading: true,
   onGetSongs: () => { }
