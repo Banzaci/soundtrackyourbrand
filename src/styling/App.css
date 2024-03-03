@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+h2 {
+  padding: 0;
+  font-size: 14px;
+  margin: 0;
+}
+
+.button {
+  width: 200px;
+  padding: 8px 0;
+  background-color: black;
+  color: white;
+  border: 1px solid #333;
+}
+
+.scrobble {
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.fade-in {
+  opacity: 1;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  transition: all .4s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  transition: all .4s ease-in-out;
+}

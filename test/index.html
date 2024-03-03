@@ -18,12 +18,12 @@
   To serve the current directory you can use `npx serve` and open http://localhost:3000.
 
   Possible improvements include:
-  * Re-implement using React
-  * Re-implement as a React Native app
-  * Add types using typescript
-  * Add some style, preferably without integrating an entire CSS framework like bootstrap/tailwind
+      * Re-implement using React
+      * Re-implement as a React Native app
+      * Add types using typescript
+      * Add some style, preferably without integrating an entire CSS framework like bootstrap/tailwind
   * Make the list responsive
-  * Add animations (loading spinner, fade/slide in scrobbles, etc.)
+      * Add animations (loading spinner, fade/slide in scrobbles, etc.)
   * Fade in album art when loaded, rendering a placeholder using scrobble.colors.(primary|accent)
   * Display the currently playing track with cover art in one column, and a track history in another
   * Only display the currently playing track in a kiosk-like mode
@@ -34,20 +34,28 @@
 
 -->
 <html>
-<head>
-    <title>Now Playing</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-      body { font-family: sans-serif; }
-      .played__row-template { display: none; }
-      .played__cover {
-        max-width: 4em;
-        max-height: 4em;
-      }
-    </style>
+<head>
+  <title>Now Playing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .played__row-template {
+      display: none;
+    }
+
+    .played__cover {
+      max-width: 4em;
+      max-height: 4em;
+    }
+  </style>
 </head>
+
 <body>
   <main id="app">
     <button type="button" id="generateScrobble">Add scrobble</button>
@@ -77,12 +85,12 @@
 
     // Zone id for "Soundtrack HQ - Glass Room" (use this if the Lounge doesn't yield results)
     // const DEFAULT_ZONE_ID = 'U291bmRab25lLCwxYzlic2pwNTJiay9Mb2NhdGlvbiwsMWp2bnk3aTdoMWMvQWNjb3VudCwsMW5kbWR6bmF5Z3cv'
-    
+
     // Zone id for "Soundtrack HQ - Lounge"
     const DEFAULT_ZONE_ID = 'U291bmRab25lLCwxanBuY3lvajR6ay9Mb2NhdGlvbiwsMWp2bnk3aTdoMWMvQWNjb3VudCwsMW5kbWR6bmF5Z3cv'
 
     display(location.hash || DEFAULT_ZONE_ID)
-    window.addEventListener('hashchange', function() { display(location.hash) })
+    window.addEventListener('hashchange', function () { display(location.hash) })
 
     // Call this to mock a track scrobble
     function generateScrobble() {
@@ -119,25 +127,26 @@
       const $node = document.querySelector('.played__row-template').cloneNode(true)
       $node.className = 'played__row'
 
-      ;[
-        ['title', scrobble.song_name],
-        ['cover', scrobble.image_url],
-        ['artists', scrobble.artists.map(artist => artist.name).join(', ')],
-        ['time', new Date(scrobble.created_at).toLocaleString()],
-      ].forEach(kv => {
-        const $elem = $node.querySelector('.played__' + kv[0])
-        switch ($elem.nodeName) {
-          case 'IMG':
-            $elem.src = kv[1]
-            break
-          default:
-            $elem.textContent = kv[1]
-        }
-      })
+        ;[
+          ['title', scrobble.song_name],
+          ['cover', scrobble.image_url],
+          ['artists', scrobble.artists.map(artist => artist.name).join(', ')],
+          ['time', new Date(scrobble.created_at).toLocaleString()],
+        ].forEach(kv => {
+          const $elem = $node.querySelector('.played__' + kv[0])
+          switch ($elem.nodeName) {
+            case 'IMG':
+              $elem.src = kv[1]
+              break
+            default:
+              $elem.textContent = kv[1]
+          }
+        })
 
       const $container = document.querySelector('.played tbody')
       $container.insertBefore($node, $container.firstChild)
     }
   </script>
 </body>
+
 </html>

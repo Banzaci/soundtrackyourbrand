@@ -1,0 +1,42 @@
+.artists {
+  opacity: 0;
+}
+
+.artist {
+  display: flex;
+  transition: all .2s ease-in-out;
+}
+
+.artist:hover {
+  z-index: 999;
+  transform: scale(1.2);
+}
+
+.artist-thumb {
+  max-width: 80px;
+}
+
+.artist-body {
+  width: 100%;
+  background-color: white;
+  padding: 4px;
+}
+
+.artist-body__time {
+  margin-bottom: 4px;
+}
+
+.artist-body__history {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.artist-body__history-link {
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.artist-body__history-link:hover {
+  text-decoration: underline;
+}
