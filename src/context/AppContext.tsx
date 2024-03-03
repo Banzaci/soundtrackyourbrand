@@ -21,7 +21,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [songs, setSongs] = useState<IArtist[]>([])
 
   const onGetSongs = async () => {
-    const zoneId = process.env.REACT_APP_ZONE_ID;
+    const zoneId = location.hash || process.env.REACT_APP_ZONE_ID;
     if (zoneId) {
       setIsLoading(true);
       const url = `https://radio.api.soundtrackyourbrand.com/sound_zones/${zoneId}/history_tracks/latest`;
