@@ -8,8 +8,14 @@
 }
 
 .artist:hover {
-  z-index: 999;
-  transform: scale(1.2);
+  transform: scale(.95);
+}
+
+@media (min-width: 481px) {
+  .artist:hover {
+    z-index: 999;
+    transform: scale(1.2);
+  }
 }
 
 .artist-thumb {
